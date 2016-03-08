@@ -3,7 +3,6 @@
 
 namespace Holger;
 
-use Holger\Exceptions\SubstationNotFound;
 
 class DECTInfo
 {
@@ -54,32 +53,5 @@ class DECTInfo
         $idParam = new \SoapParam($handsetId, "NewDectID");
 
         return $this->prepareRequest()->GetDECTHandsetInfo($idParam);
-    }
-
-    /**
-     * Resolves a substation id, that is provided by the call monitor
-     * to indicate the used handset for the call.
-     * @param $substationId
-     * @return array
-     * @throws SubstationNotFound
-     */
-    public function resolveSubstation($substationId)
-    {
-        $phonebook = new Phonebook($this->conn);
-
-        $entries = $phonebook->entries(0);
-
-        $result = $entries->xpath("//contact[uniqueid=\"" . intval($substationId) . "\"]");
-
-        if (count($result) == 0) {
-            throw new SubstationNotFound();
-        } else {
-            $item = $result[0];
-            return [
-                'uniqueId' => intval($item->uniqueid),
-                'realName' => strval($item->person->realName),
-                'number' => strval($item->telephony->number),
-            ];
-        }
     }
 }

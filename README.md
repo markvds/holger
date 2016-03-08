@@ -22,7 +22,7 @@ composer require davidbohn/holger
 First create an instance of TR064Connection.
 Then you can pass this connection to one of the provided service classes. Example:
 
-```
+```php
 <?php
 
 require_once "vendor/autoload.php";
