@@ -35,10 +35,15 @@ var_dump($wanip->externalIPv6());
 var_dump($wanip->getIPv6Prefix());
 var_dump($wanip->status());*/
 
-$wanstats = new \Holger\WANStats($res);
+/*$wanstats = new \Holger\WANStats($res);
 
 var_dump($wanstats->packetStats());
-var_dump($wanstats->linkProperties());
+var_dump($wanstats->linkProperties());*/
+
+$packageCounter = new \Holger\PackageCounter($res);
+
+var_dump($packageCounter->info());
+var_dump($packageCounter->statistics());
 
 /*$deviceInfo = new \Holger\DeviceInfo($res);
 
