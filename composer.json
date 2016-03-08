@@ -1,0 +1,17 @@
+{
+    "name": "davidbohn/holger",
+    "description": "Fritz!Box API Client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Bohn",
+            "email": "davbohn@googlemail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Holger\\": "src/"
+        }
+    }
+}
