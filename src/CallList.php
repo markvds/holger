@@ -18,4 +18,11 @@ class CallList
     {
         return $this->prepareRequest()->GetCallList();
     }
+
+    public function getCallList()
+    {
+        $url = $this->getCallListUrl();
+
+        return simplexml_load_file($url);
+    }
 }
