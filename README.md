@@ -20,6 +20,35 @@ composer require davidbohn/holger
 ## Usage
 
 First create an instance of TR064Connection.
+Then you can pass this connection to one of the provided service classes. Example:
+
+```
+<?php
+
+require_once "vendor/autoload.php";
+
+$credentials = [
+    'username' => 'user',
+    'password' => 'password'
+];
+
+if (file_exists('config.php')) {
+    $loadedCredentials = include 'config.php';
+
+    $credentials = array_merge($credentials, $loadedCredentials);
+}
+
+$res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
+
+$wanip = new \Holger\WANIP($res);
+
+var_dump($wanip->externalIP());
+
+var_dump($wanip->externalIPv6());
+var_dump($wanip->getIPv6Prefix());
+var_dump($wanip->status());
+
+```
 
 ## Contributing
 
