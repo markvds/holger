@@ -19,10 +19,7 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
     {
         $link = $this->wanStats->linkProperties();
 
-        $this->assertArrayHasKey('NewWANAccessType', $link);
-        $this->assertArrayHasKey('NewLayer1UpstreamMaxBitRate', $link);
-        $this->assertArrayHasKey('NewLayer1DownstreamMaxBitRate', $link);
-        $this->assertArrayHasKey('NewPhysicalLinkStatus', $link);
+        $this->assertInstanceOf(\Holger\Entities\Link::class, $link);
 
     }
 
@@ -32,9 +29,9 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
         $stats = $this->wanStats->byteStats();
 
         $this->assertArrayHasKey('sent', $stats);
-        $this->assertTrue(is_numeric($stats['sent']));
+        $this->assertInstanceOf(\Holger\Values\Byte::class, $stats['sent']);
         $this->assertArrayHasKey('received', $stats);
-        $this->assertTrue(is_numeric($stats['received']));
+        $this->assertInstanceOf(\Holger\Values\Byte::class, $stats['received']);
 
     }
 

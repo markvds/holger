@@ -28,26 +28,21 @@ class NetworkTest extends PHPUnit_Framework_TestCase
         $id = $this->network->numberOfHostEntries() - 1;
         $host = $this->network->hostById($id);
 
-        $this->assertTrue(is_array($host));
-        $this->assertArrayHasKey('NewIPAddress', $host);
-        $this->assertArrayHasKey('NewAddressSource', $host);
-        $this->assertArrayHasKey('NewLeaseTimeRemaining', $host);
-        $this->assertArrayHasKey('NewMACAddress', $host);
-        $this->assertArrayHasKey('NewInterfaceType', $host);
-        $this->assertArrayHasKey('NewActive', $host);
-        $this->assertArrayHasKey('NewHostName', $host);
+        //$this->assertTrue(is_array($host));
+        $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
+
     }
 
     /** @test */
     public function it_can_fetch_host_by_mac()
     {
         $oneHost = $this->network->hostById(0);
-        $mac = $oneHost['NewMACAddress'];
+        $mac = $oneHost->getMacAddress();
 
         $host = $this->network->hostByMAC($mac);
 
-        $this->assertTrue(is_array($host));
-        $this->assertArraySubset($host, $oneHost);
+        $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
+        $this->assertEquals($oneHost->getIpAddress(), $host->getIpAddress());
     }
 
 }

@@ -4,6 +4,8 @@
 namespace Holger;
 
 
+use Holger\Entities\Host;
+
 class Network
 {
     protected $endpoint = [
@@ -29,23 +31,28 @@ class Network
      * Data includes the IP address (NewIPAddress), MAC Address (NewMACAddress)
      * and much more.
      * @param $id
-     * @return array
+     * @return Host
      */
     public function hostById($id)
     {
         $idParam = new \SoapParam($id, "NewIndex");
-        return $this->prepareRequest()->GetGenericHostEntry($idParam);
+        $response = $this->prepareRequest()->GetGenericHostEntry($idParam);
+
+        return Host::fromResponse($response);
     }
 
     /**
      * Get information like IP address of a host given by the mac address
      * @param $mac
-     * @return mixed
+     * @return Host
      */
     public function hostByMAC($mac)
     {
         $macParam = new \SoapParam($mac, "NewMACAddress");
 
-        return $this->prepareRequest()->GetSpecificHostEntry($macParam);
+        $response = $this->prepareRequest()->GetSpecificHostEntry($macParam);
+        $response['NewMACAddress'] = $mac;
+
+        return Host::fromResponse($response);
     }
 }

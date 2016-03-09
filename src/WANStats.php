@@ -4,6 +4,9 @@
 namespace Holger;
 
 
+use Holger\Entities\Link;
+use Holger\Values\Byte;
+
 class WANStats
 {
     protected $endpoint = [
@@ -21,7 +24,9 @@ class WANStats
      */
     public function linkProperties()
     {
-        return $this->prepareRequest()->GetCommonLinkProperties();
+        $response = $this->prepareRequest()->GetCommonLinkProperties();
+
+        return Link::fromResponse($response);
     }
 
     /**
@@ -31,7 +36,9 @@ class WANStats
     public function byteStats()
     {
         $client = $this->prepareRequest();
-        return ['sent' => $client->GetTotalBytesSent(), 'received' => $client->GetTotalBytesReceived()];
+        $sent = Byte::fromBytes($client->GetTotalBytesSent());
+        $received = Byte::fromBytes($client->GetTotalBytesReceived());
+        return compact('sent', 'received');
     }
 
     /**

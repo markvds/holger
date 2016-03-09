@@ -4,6 +4,7 @@
 namespace Holger;
 
 
+use Holger\Entities\WANStatus;
 use Holger\Exceptions\IPv6UnavailableException;
 
 class WANIP
@@ -23,7 +24,7 @@ class WANIP
      */
     public function status()
     {
-        return $this->prepareRequest()->GetStatusInfo();
+        return WANStatus::fromResponse($this->prepareRequest()->GetStatusInfo());
     }
 
     /**
