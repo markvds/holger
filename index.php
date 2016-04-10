@@ -29,6 +29,18 @@ echo "\n\n2. DECT Info:\n";
 $dectInfo = new \Holger\DECTInfo($res);
 echo "List of handsets: " . implode(", ", $dectInfo->getHandsets()) . "\n\n";
 
+echo "3. IP Addresses:\n";
+$wanip = new \Holger\WANIP($res);
+
+echo "External IP: " . $wanip->externalIP() . "\n";
+echo "Uptime: " . $wanip->status()->getUptime() . "s\n";
+
+try {
+    echo "External IPv6: " . $wanip->externalIPv6() . "\n";
+} catch (\Holger\Exceptions\IPv6UnavailableException $e) {
+    echo "IPv6 unavailable!\n";
+}
+
 // $dect = new \Holger\DECTInfo($res);
 
 // var_dump($dect->getHandsetInfo(1));
@@ -41,23 +53,15 @@ try {
     dump($e);
 }*/
 
-/*$wanip = new \Holger\WANIP($res);
-
-var_dump($wanip->externalIP());
-
-var_dump($wanip->externalIPv6());
-var_dump($wanip->getIPv6Prefix());
-var_dump($wanip->status());*/
-
 /*$wanstats = new \Holger\WANStats($res);
 
 var_dump($wanstats->packetStats());
 var_dump($wanstats->linkProperties());*/
 
-$packageCounter = new \Holger\PackageCounter($res);
+/*$packageCounter = new \Holger\PackageCounter($res);
 
 dump($packageCounter->info());
-dump($packageCounter->statistics());
+dump($packageCounter->statistics());*/
 
 /*$deviceInfo = new \Holger\DeviceInfo($res);
 
