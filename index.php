@@ -15,6 +15,20 @@ if (file_exists('config.php')) {
 
 $res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
 
+echo "\n\n Holger Function Overview\n===========================\n\n";
+
+echo "1. Call List:\n";
+$callList = new \Holger\CallList($res);
+
+echo "Call List URL: " . $callList->getCallListUrl() . "\n";
+echo "Last 10 calls:\n\n";
+echo $callList->getCallList(['max' => 10, 'type' => 'csv']);
+
+echo "\n\n2. DECT Info:\n";
+
+$dectInfo = new \Holger\DECTInfo($res);
+echo "List of handsets: " . implode(", ", $dectInfo->getHandsets()) . "\n\n";
+
 // $dect = new \Holger\DECTInfo($res);
 
 // var_dump($dect->getHandsetInfo(1));
