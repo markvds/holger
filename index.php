@@ -22,9 +22,9 @@ $res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $cr
 /*$phonebook = new \Holger\Phonebook($res);
 
 try {
-    var_dump($phonebook->entries(0));
+    dump($phonebook->entry(1, 0, true));
 } catch (SoapFault $e) {
-    var_dump($e);
+    dump($e);
 }*/
 
 /*$wanip = new \Holger\WANIP($res);
@@ -42,8 +42,8 @@ var_dump($wanstats->linkProperties());*/
 
 $packageCounter = new \Holger\PackageCounter($res);
 
-var_dump($packageCounter->info());
-var_dump($packageCounter->statistics());
+dump($packageCounter->info());
+dump($packageCounter->statistics());
 
 /*$deviceInfo = new \Holger\DeviceInfo($res);
 

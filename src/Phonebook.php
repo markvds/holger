@@ -2,6 +2,9 @@
 
 namespace Holger;
 
+use Carbon\Carbon;
+use Holger\Entities\PhonebookEntry;
+use Holger\Entities\PhoneNumber;
 use Holger\Exceptions\SubstationNotFound;
 
 /**
@@ -75,7 +78,12 @@ class Phonebook
         if ($raw) {
             return $response;
         }
-        return simplexml_load_string($response);
+
+        $response = simplexml_load_string($response);
+
+        $entry = $this->extractPhonebookEntry($response);
+
+        return $entry;
     }
 
     /**
@@ -96,11 +104,33 @@ class Phonebook
             throw new SubstationNotFound();
         } else {
             $item = $result[0];
-            return [
-                'uniqueId' => intval($item->uniqueid),
-                'realName' => strval($item->person->realName),
-                'number' => strval($item->telephony->number),
-            ];
+            return $this->extractPhonebookEntry($item);
         }
+    }
+
+    public function addPhonebookEntry($name, $numbers, $quickcall)
+    {
+
+    }
+
+    /**
+     * @param $response
+     * @return PhonebookEntry
+     */
+    protected function extractPhonebookEntry($response)
+    {
+        $numbers = [];
+
+        foreach ($response->telephony->number as $number) {
+            $attributes = $number->attributes();
+            $numbers[] = new PhoneNumber($number, (int)$attributes['id'], $attributes['type'],
+                (int)$attributes['prio']);
+        }
+
+        $timestamp = Carbon::createFromTimestamp((int)$response->mod_time);
+
+        $entry = new PhonebookEntry((string)$response->person->realName, (int)$response->category, $numbers,
+            (string)$response->services->email, $timestamp, (int)$response->uniqueid);
+        return $entry;
     }
 }
