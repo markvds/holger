@@ -26,27 +26,49 @@ class PhoneNumber
     }
 
     /**
+     * Create new mobile phone number
      * @param string $number
      * @param int $id
-     * @param $prio
+     * @param int $prio
      * @return PhoneNumber
      */
-    public static function newMobile(string $number, int $id, $prio)
+    public static function newMobile(string $number, int $id, int $prio)
     {
         return new static($number, $id, static::TYPE_MOBILE, $prio);
     }
 
-    public static function newHome(string $number, int $id, $prio)
+    /**
+     * Create new home phone number
+     * @param string $number
+     * @param int $id
+     * @param int $prio
+     * @return PhoneNumber
+     */
+    public static function newHome(string $number, int $id, int $prio)
     {
         return new static($number, $id, static::TYPE_HOME, $prio);
     }
 
-    public static function newWork(string $number, int $id, $prio)
+    /**
+     * Create new work phone number
+     * @param string $number
+     * @param int $id
+     * @param int $prio
+     * @return PhoneNumber
+     */
+    public static function newWork(string $number, int $id, int $prio)
     {
         return new static($number, $id, static::TYPE_WORK, $prio);
     }
 
-    public static function newFax(string $number, int $id, $prio)
+    /**
+     * Create new fax phone number
+     * @param string $number
+     * @param int $id
+     * @param int $prio
+     * @return PhoneNumber
+     */
+    public static function newFax(string $number, int $id, int $prio)
     {
         return new static($number, $id, static::TYPE_FAX, $prio);
     }

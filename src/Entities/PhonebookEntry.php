@@ -33,6 +33,7 @@ class PhonebookEntry
     }
 
     /**
+     * Simplified constructor to create a new phonebook entry
      * @param $realName
      * @param PhoneNumber[] $numbers
      * @param $email
