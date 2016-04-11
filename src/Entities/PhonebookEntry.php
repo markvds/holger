@@ -17,7 +17,7 @@ class PhonebookEntry
      * PhonebookEntry constructor.
      * @param $realName
      * @param $category
-     * @param array $numbers
+     * @param PhoneNumber[] $numbers
      * @param $email
      * @param $modTime
      * @param $uniqueid
@@ -30,5 +30,16 @@ class PhonebookEntry
         $this->email = $email;
         $this->modTime = $modTime;
         $this->uniqueid = $uniqueid;
+    }
+
+    /**
+     * @param $realName
+     * @param PhoneNumber[] $numbers
+     * @param $email
+     * @return PhonebookEntry
+     */
+    public static function create($realName, array $numbers, $email)
+    {
+        return new static($realName, 0, $numbers, $email, time(), null);
     }
 }

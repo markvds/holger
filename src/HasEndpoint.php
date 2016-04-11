@@ -8,9 +8,9 @@ trait HasEndpoint
 {
     protected $conn = null;
 
-    public function __construct(TR064Connection $fritz)
+    public function __construct(TR064Connection $conn)
     {
-        $this->conn = $fritz;
+        $this->conn = $conn;
     }
 
     /**

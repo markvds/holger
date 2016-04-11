@@ -108,9 +108,15 @@ class Phonebook
         }
     }
 
-    public function addPhonebookEntry($name, $numbers, $quickcall)
+    public function addPhonebookEntry($phonebookId, PhonebookEntry $entry)
     {
+        $serializedEntry = PhonebookEntrySerializer::serialize($entry);
 
+        $idParam = new \SoapParam((int)$phonebookId, 'NewPhonebookID');
+        $entryParam = new \SoapParam('', 'NewPhonebookEntryID');
+        $entryDataParam = new \SoapParam($serializedEntry, 'NewPhonebookEntryData');
+
+        return $this->prepareRequest()->SetPhonebookEntry($idParam, $entryParam, $entryDataParam);
     }
 
     /**

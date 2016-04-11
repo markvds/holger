@@ -4,6 +4,8 @@
 namespace Holger;
 
 
+use Holger\Values\Byte;
+
 class PackageCounter
 {
     protected $endpoint = [
@@ -21,6 +23,13 @@ class PackageCounter
 
     public function statistics()
     {
-        return $this->prepareRequest()->GetStatistics();
+        $response = $this->prepareRequest()->GetStatistics();
+
+        return [
+            'bytesSent' => Byte::fromBytes($response['NewBytesSent']),
+            'bytesReceived' => Byte::fromBytes($response['NewBytesReceived']),
+            'packetsSent' => $response['NewPacketsSent'],
+            'packetsReceived' => $response['NewPacketsReceived']
+        ];
     }
 }

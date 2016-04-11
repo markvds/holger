@@ -49,8 +49,8 @@ try {
 echo "\n4. Package Counter:\n";
 $packageCounter = new \Holger\PackageCounter($res);
 $stats = $packageCounter->statistics();
-echo "Sent Bytes: " . $stats['NewBytesSent'] . " B\n";
-echo "Received Bytes: " . $stats['NewBytesReceived'] . " B\n";
+echo "Sent Bytes: " . $stats['bytesSent']->megaBytes() . " MB\n";
+echo "Received Bytes: " . $stats['bytesReceived']->megaBytes() . " MB\n";
 
 echo "\n5. Device Info:\n";
 $deviceInfo = new \Holger\DeviceInfo($res);

@@ -11,12 +11,13 @@ class PhonebookEntrySerializer
 
     public static function serialize(PhonebookEntry $phonebookEntry)
     {
-        $serialize = "<contact>
+        $serialize = "
+<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+<contact>
             <category>" . $phonebookEntry->category . "</category>
             <person>
                 <realName>" . $phonebookEntry->realName . "</realName>
             </person>
-            <uniqueid>" . $phonebookEntry->uniqueid . "</uniqueid>
             <telephony nid=\"" . count($phonebookEntry->numbers) . "\">";
 
         foreach ($phonebookEntry->numbers as $number) {
@@ -25,6 +26,11 @@ class PhonebookEntrySerializer
 
         $serialize .= "
 	        </telephony>
+	        ";
+        if ($phonebookEntry->uniqueid !== null) {
+            $serialize .= "<uniqueid>" . $phonebookEntry->uniqueid . "</uniqueid>";
+        }
+        $serialize .= "
 	        <services nid=\"1\">
 		        <email classifier=\"private\" id=\"0\">" . $phonebookEntry->email . "</email>
 	        </services>
