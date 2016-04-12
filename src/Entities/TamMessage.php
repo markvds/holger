@@ -45,7 +45,6 @@ class TamMessage
         $new,
         $path
     ) {
-
         $this->index = $index;
         $this->tam = $tam;
         $this->caller = $caller;

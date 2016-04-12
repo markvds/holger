@@ -19,7 +19,7 @@ class WANStats
     /**
      * Get info about the established WAN connection
      * returns upstream and downstream bitrate, link status and access type.
-     * 
+     *
      * @return Link
      */
     public function linkProperties()

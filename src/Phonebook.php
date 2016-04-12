@@ -95,14 +95,13 @@ class Phonebook
      * to indicate the used handset for the call.
      *
      * @param $substationId
-     * 
+     *
      * @throws SubstationNotFound
      *
      * @return array
      */
     public function resolveSubstation($substationId)
     {
-
         $entries = $this->entries(0);
 
         $result = $entries->xpath('//contact[uniqueid="' . intval($substationId) . '"]');

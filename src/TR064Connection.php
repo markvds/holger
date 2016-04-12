@@ -42,7 +42,6 @@ class TR064Connection
      */
     public function __construct($host, $password, $username = null)
     {
-
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
@@ -84,5 +83,4 @@ class TR064Connection
 
         return $protocol . $host . ':' . $port . $uri;
     }
-
 }

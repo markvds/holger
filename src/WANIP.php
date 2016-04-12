@@ -55,10 +55,10 @@ class WANIP
     }
 
     /**
-     * Retrieve the IPv6 address space prefix
+     * Retrieve the IPv6 address space prefix.
      *
      * @throws IPv6UnavailableException
-     * 
+     *
      * @return array
      */
     public function getIPv6Prefix()
