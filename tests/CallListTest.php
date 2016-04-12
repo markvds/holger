@@ -1,8 +1,8 @@
 <?php
 
-
 class CallListTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var \Holger\CallList
      */
@@ -19,7 +19,8 @@ class CallListTest extends PHPUnit_Framework_TestCase
     {
         $url = $this->callList->getCallListUrl();
 
-        $this->assertNotFalse(filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED | FILTER_FLAG_QUERY_REQUIRED));
+        $this->assertNotFalse(filter_var($url, FILTER_VALIDATE_URL,
+            FILTER_FLAG_PATH_REQUIRED | FILTER_FLAG_QUERY_REQUIRED));
     }
 
     /** @test */

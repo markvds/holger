@@ -1,8 +1,8 @@
 <?php
 
-
 class WANStatsTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var \Holger\WANStats
      */

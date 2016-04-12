@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Holger;
-
 
 class DECTInfo
 {
@@ -18,6 +16,7 @@ class DECTInfo
     /**
      * List all available Handset IDs
      * URI: urn:dslforum-org:service:X_AVM-DE_OnTel:1#GetDECTHandsetList.
+     *
      * @return array
      */
     public function getHandsets()
@@ -28,6 +27,7 @@ class DECTInfo
     /**
      * Retrieve full information about the handsets
      * i.e. call getHandsetInfo for each handset.
+     *
      * @return array
      */
     public function getFullHandsetInfo()
@@ -45,6 +45,7 @@ class DECTInfo
     /**
      * Returns all available information about one handset.
      * Fields: NewHandsetName, NewPhonebookID.
+     *
      * @param $handsetId
      * @return mixed
      */

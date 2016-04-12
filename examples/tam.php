@@ -1,10 +1,10 @@
 <?php
 
-require_once "../vendor/autoload.php";
+require_once '../vendor/autoload.php';
 
 $credentials = [
     'username' => 'user',
-    'password' => 'password'
+    'password' => 'password',
 ];
 
 if (file_exists('../config.php')) {

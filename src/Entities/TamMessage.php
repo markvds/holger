@@ -2,11 +2,11 @@
 
 namespace Holger\Entities;
 
-
 use Carbon\Carbon;
 
 class TamMessage
 {
+
     public $index;
     public $tam;
     public $caller;

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Holger;
-
 
 class DeviceInfo
 {
@@ -38,7 +36,7 @@ class DeviceInfo
 
     /**
      * Fetch the port number to use for a secure connection.
-     * 
+     *
      * @return int
      */
     public function securityPort()

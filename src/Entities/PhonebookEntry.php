@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Holger\Entities;
-
 
 class PhonebookEntry
 {
+
     public $realName;
     public $category;
     public $numbers;
@@ -34,7 +33,7 @@ class PhonebookEntry
 
     /**
      * Simplified constructor to create a new phonebook entry.
-     * 
+     *
      * @param $realName
      * @param PhoneNumber[] $numbers
      * @param $email

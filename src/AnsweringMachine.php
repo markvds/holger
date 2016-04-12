@@ -2,7 +2,6 @@
 
 namespace Holger;
 
-
 use Holger\Entities\TamMessage;
 
 class AnsweringMachine
@@ -18,14 +17,14 @@ class AnsweringMachine
 
     public function getInfo($index = 0)
     {
-        $idParam = new \SoapParam($index, "NewIndex");
+        $idParam = new \SoapParam($index, 'NewIndex');
 
         return $this->prepareRequest()->GetInfo($idParam);
     }
 
     public function getMessageListUrl($index = 0)
     {
-        $idParam = new \SoapParam($index, "NewIndex");
+        $idParam = new \SoapParam($index, 'NewIndex');
 
         return $this->prepareRequest()->GetMessageList($idParam);
     }
@@ -35,7 +34,8 @@ class AnsweringMachine
      * Identify your answering machine by the index. To download the messages
      * you have to supply a SID. This can be fetched by the getSid method
      * in the DeviceInfo class. Pass the result of this method as a second
-     * argument to let this class generate the correct urls for you
+     * argument to let this class generate the correct urls for you.
+     *
      * @param int $index
      * @param string|null $sid
      * @return TamMessage[]
@@ -51,7 +51,7 @@ class AnsweringMachine
         foreach ($data as $message) {
             $url = $this->conn->makeUri((string)$message->Path);
             if ($sid !== null) {
-                $url .= "&" . $sid;
+                $url .= '&' . $sid;
             }
             $messages[] = new TamMessage(
                 (int)$message->Index,

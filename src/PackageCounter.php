@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Holger;
-
 
 use Holger\Values\Byte;
 
 class PackageCounter
 {
+
     protected $endpoint = [
         'controlUri' => '/upnp/control/lanethernetifcfg',
         'uri' => 'urn:dslforum-org:service:LANEthernetInterfaceConfig:1',
@@ -29,7 +28,7 @@ class PackageCounter
             'bytesSent' => Byte::fromBytes($response['NewBytesSent']),
             'bytesReceived' => Byte::fromBytes($response['NewBytesReceived']),
             'packetsSent' => $response['NewPacketsSent'],
-            'packetsReceived' => $response['NewPacketsReceived']
+            'packetsReceived' => $response['NewPacketsReceived'],
         ];
     }
 }

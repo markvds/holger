@@ -2,9 +2,9 @@
 
 namespace Holger;
 
-
 class DeviceConfig
 {
+
     protected $endpoint = [
         'controlUri' => '/upnp/control/deviceconfig',
         'uri' => 'urn:dslforum-org:service:DeviceConfig:1',
@@ -15,6 +15,6 @@ class DeviceConfig
 
     public function getSid()
     {
-        return $this->prepareRequest()->__soapCall("X_AVM-DE_CreateUrlSID", []);
+        return $this->prepareRequest()->__soapCall('X_AVM-DE_CreateUrlSID', []);
     }
 }

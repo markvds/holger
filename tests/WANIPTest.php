@@ -1,8 +1,8 @@
 <?php
 
-
 class WANIPTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var \Holger\WANIP
      */
@@ -18,7 +18,7 @@ class WANIPTest extends PHPUnit_Framework_TestCase
     public function it_can_fetch_ipv4()
     {
         $ip = $this->wanIp->externalIP();
-        
+
         $this->assertNotFalse(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
     }
 
@@ -26,7 +26,7 @@ class WANIPTest extends PHPUnit_Framework_TestCase
     public function it_can_fetch_wan_status()
     {
         $status = $this->wanIp->status();
-    
+
         $this->assertInstanceOf(\Holger\Entities\WANStatus::class, $status);
     }
 }

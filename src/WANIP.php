@@ -1,14 +1,13 @@
 <?php
 
-
 namespace Holger;
-
 
 use Holger\Entities\WANStatus;
 use Holger\Exceptions\IPv6UnavailableException;
 
 class WANIP
 {
+
     protected $endpoint = [
         'controlUri' => '/igdupnp/control/WANIPConn1',
         'uri' => 'urn:schemas-upnp-org:service:WANIPConnection:1',
@@ -16,7 +15,6 @@ class WANIP
     ];
 
     use HasEndpoint;
-
 
     /**
      * Get connection state and uptime

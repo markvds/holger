@@ -7,9 +7,6 @@ use Holger\Entities\PhonebookEntry;
 use Holger\Entities\PhoneNumber;
 use Holger\Exceptions\SubstationNotFound;
 
-/**
- *
- */
 class Phonebook
 {
 
@@ -22,7 +19,8 @@ class Phonebook
     use HasEndpoint;
 
     /**
-     * List all available phonebooks
+     * List all available phonebooks.
+     *
      * @return array
      */
     public function getPhonebooks()
@@ -33,7 +31,8 @@ class Phonebook
     }
 
     /**
-     * Fetch the url to get the entries of a phonebook
+     * Fetch the url to get the entries of a phonebook.
+     *
      * @param $phonebookId
      * @return string
      */
@@ -45,7 +44,8 @@ class Phonebook
     }
 
     /**
-     * List all phonebook entries of a given phonebook
+     * List all phonebook entries of a given phonebook.
+     *
      * @param $phonebookId
      * @return \SimpleXMLElement
      */
@@ -64,7 +64,8 @@ class Phonebook
     }
 
     /**
-     * Fetch entry $entryId of phonebook $phonebookId
+     * Fetch entry $entryId of phonebook $phonebookId.
+     *
      * @param $entryId
      * @param $phonebookId
      * @param bool $raw
@@ -89,6 +90,7 @@ class Phonebook
     /**
      * Resolves a substation id, that is provided by the call monitor
      * to indicate the used handset for the call.
+     * 
      * @param $substationId
      * @return array
      * @throws SubstationNotFound
@@ -98,12 +100,13 @@ class Phonebook
 
         $entries = $this->entries(0);
 
-        $result = $entries->xpath("//contact[uniqueid=\"" . intval($substationId) . "\"]");
+        $result = $entries->xpath('//contact[uniqueid="' . intval($substationId) . '"]');
 
         if (count($result) == 0) {
             throw new SubstationNotFound();
         } else {
             $item = $result[0];
+
             return $this->extractPhonebookEntry($item);
         }
     }
@@ -137,6 +140,7 @@ class Phonebook
 
         $entry = new PhonebookEntry((string)$response->person->realName, (int)$response->category, $numbers,
             (string)$response->services->email, $timestamp, (int)$response->uniqueid);
+
         return $entry;
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Holger;
 
 class CallList

@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Holger\Entities;
-
 
 class WANStatus implements \JsonSerializable
 {
+
     /**
      * @var string
      */
@@ -29,7 +28,8 @@ class WANStatus implements \JsonSerializable
 
     public static function fromResponse($response)
     {
-        return new static($response['NewConnectionStatus'], $response['NewLastConnectionError'], $response['NewUptime']);
+        return new static($response['NewConnectionStatus'], $response['NewLastConnectionError'],
+            $response['NewUptime']);
     }
 
     /**

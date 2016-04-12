@@ -6,6 +6,7 @@ use SoapClient;
 
 class TR064Connection
 {
+
     /**
      * @var string Host address of the router
      */
@@ -33,7 +34,8 @@ class TR064Connection
 
     /**
      * FritzBox constructor.
-     * TODO: Handle no username configuration
+     * TODO: Handle no username configuration.
+     * 
      * @param string $host
      * @param string $password
      * @param string|null $username

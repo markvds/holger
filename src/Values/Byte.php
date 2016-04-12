@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Holger\Values;
-
 
 class Byte implements \JsonSerializable
 {
+
     protected $bits;
 
     public function __construct($bits)

@@ -1,18 +1,17 @@
 <?php
 
-
 namespace Holger;
-
 
 use Holger\Entities\Link;
 use Holger\Values\Byte;
 
 class WANStats
 {
+
     protected $endpoint = [
         'controlUri' => '/igdupnp/control/WANCommonIFC1',
         'uri' => 'urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1',
-        'scpdurl' => '/igdicfgSCPD.xml'
+        'scpdurl' => '/igdicfgSCPD.xml',
     ];
 
     use HasEndpoint;
@@ -38,6 +37,7 @@ class WANStats
         $client = $this->prepareRequest();
         $sent = Byte::fromBytes($client->GetTotalBytesSent());
         $received = Byte::fromBytes($client->GetTotalBytesReceived());
+
         return compact('sent', 'received');
     }
 
@@ -48,6 +48,7 @@ class WANStats
     public function packetStats()
     {
         $client = $this->prepareRequest();
+
         return ['sent' => $client->GetTotalPacketsSent(), 'received' => $client->GetTotalPacketsReceived()];
     }
 }

@@ -1,13 +1,12 @@
 <?php
 
-
 namespace Holger\Entities;
-
 
 use Holger\Values\Byte;
 
 class Link implements \JsonSerializable
 {
+
     /**
      * @var string
      */

@@ -1,8 +1,8 @@
 <?php
 
-
 class NetworkTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @var \Holger\Network
      */
