@@ -1,5 +1,7 @@
 # Holger Lib
 
+[![StyleCI](https://styleci.io/repos/53442008/shield)](https://styleci.io/repos/53442008)
+
 This library is a tool to interact with routers that support the TR-064 standard.
  It is mainly tested with a Fritz!Box 7360 by AVM.
 
@@ -59,6 +61,12 @@ var_dump($wanip->status());
 5. Submit a pull request!
 
 ## History
+
+### 0.3
+Retrieval of answering machine messages from Fritz!Box routers was added.
+
+### 0.2
+This release adds some new endpoints and also introduces new features for the phonebook.
 
 ### 0.1
 Initial version, that is in no way feature complete but shows how stuff could work.
