@@ -6,7 +6,6 @@ use Holger\Entities\PhonebookEntry;
 
 class PhonebookEntrySerializer
 {
-
     public static function serialize(PhonebookEntry $phonebookEntry)
     {
         $serialize = '

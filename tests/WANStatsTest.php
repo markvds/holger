@@ -20,7 +20,6 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
         $link = $this->wanStats->linkProperties();
 
         $this->assertInstanceOf(\Holger\Entities\Link::class, $link);
-
     }
 
     /** @test */
@@ -32,7 +31,6 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(\Holger\Values\Byte::class, $stats['sent']);
         $this->assertArrayHasKey('received', $stats);
         $this->assertInstanceOf(\Holger\Values\Byte::class, $stats['received']);
-
     }
 
     /** @test */

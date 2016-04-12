@@ -35,9 +35,9 @@ class TR064Connection
     /**
      * FritzBox constructor.
      * TODO: Handle no username configuration.
-     * 
-     * @param string $host
-     * @param string $password
+     *
+     * @param string      $host
+     * @param string      $password
      * @param string|null $username
      */
     public function __construct($host, $password, $username = null)
@@ -50,7 +50,8 @@ class TR064Connection
 
     /**
      * @param object $params
-     * @param bool $noroot
+     * @param bool   $noroot
+     *
      * @return SoapClient
      */
     public function makeRequest($params = null, $noroot = true)
@@ -68,10 +69,11 @@ class TR064Connection
     }
 
     /**
-     * @param string $uri
+     * @param string      $uri
      * @param string|null $protocol
      * @param string|null $host
      * @param string|null $port
+     *
      * @return string
      */
     public function makeUri($uri, $protocol = null, $host = null, $port = null)

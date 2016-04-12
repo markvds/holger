@@ -30,7 +30,6 @@ class NetworkTest extends PHPUnit_Framework_TestCase
 
         //$this->assertTrue(is_array($host));
         $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
-
     }
 
     /** @test */
@@ -44,5 +43,4 @@ class NetworkTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
         $this->assertEquals($oneHost->getIpAddress(), $host->getIpAddress());
     }
-
 }

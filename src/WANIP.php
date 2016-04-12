@@ -17,7 +17,8 @@ class WANIP
     use HasEndpoint;
 
     /**
-     * Get connection state and uptime
+     * Get connection state and uptime.
+     *
      * @return mixed
      */
     public function status()
@@ -26,7 +27,8 @@ class WANIP
     }
 
     /**
-     * Fetch the external IPv4 address
+     * Fetch the external IPv4 address.
+     *
      * @return string The IPv4 address in the usual 4 octet style
      */
     public function externalIP()
@@ -35,11 +37,13 @@ class WANIP
     }
 
     /**
-     * Fetch the external IPv6 address
+     * Fetch the external IPv6 address.
      * This operation may fail, if your internet connection does not provide
      * a IPv6 address!
-     * @return mixed
+     *
      * @throws IPv6UnavailableException
+     *
+     * @return mixed
      */
     public function externalIPv6()
     {
@@ -52,8 +56,10 @@ class WANIP
 
     /**
      * Retrieve the IPv6 address space prefix
-     * @return array
+     *
      * @throws IPv6UnavailableException
+     * 
+     * @return array
      */
     public function getIPv6Prefix()
     {

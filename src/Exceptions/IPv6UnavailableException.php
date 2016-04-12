@@ -6,5 +6,4 @@ use Exception;
 
 class IPv6UnavailableException extends Exception
 {
-
 }

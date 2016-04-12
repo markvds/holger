@@ -36,8 +36,9 @@ class AnsweringMachine
      * in the DeviceInfo class. Pass the result of this method as a second
      * argument to let this class generate the correct urls for you.
      *
-     * @param int $index
+     * @param int         $index
      * @param string|null $sid
+     *
      * @return TamMessage[]
      */
     public function getMessageList($index = 0, $sid = null)

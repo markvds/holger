@@ -10,7 +10,7 @@ class Network
     protected $endpoint = [
         'controlUri' => '/upnp/control/hosts',
         'uri' => 'urn:dslforum-org:service:Hosts:1',
-        'scpdurl' => "/hostsSCPD.xml",
+        'scpdurl' => '/hostsSCPD.xml',
     ];
 
     use HasEndpoint;
@@ -32,6 +32,7 @@ class Network
      * and much more.
      *
      * @param $id
+     *
      * @return Host
      */
     public function hostById($id)
@@ -46,6 +47,7 @@ class Network
      * Get information like IP address of a host given by the mac address.
      *
      * @param $mac
+     *
      * @return Host
      */
     public function hostByMAC($mac)

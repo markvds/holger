@@ -18,7 +18,8 @@ class WANStats
 
     /**
      * Get info about the established WAN connection
-     * returns upstream and downstream bitrate, link status and access type
+     * returns upstream and downstream bitrate, link status and access type.
+     * 
      * @return Link
      */
     public function linkProperties()
@@ -29,7 +30,8 @@ class WANStats
     }
 
     /**
-     * Returns sent and received bytes since restart
+     * Returns sent and received bytes since restart.
+     *
      * @return array
      */
     public function byteStats()
@@ -42,7 +44,8 @@ class WANStats
     }
 
     /**
-     * Returns sent and received packages since restart
+     * Returns sent and received packages since restart.
+     *
      * @return array
      */
     public function packetStats()

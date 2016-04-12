@@ -14,12 +14,13 @@ class PhonebookEntry
 
     /**
      * PhonebookEntry constructor.
-     * @param $realName
-     * @param $category
+     *
+     * @param               $realName
+     * @param               $category
      * @param PhoneNumber[] $numbers
-     * @param $email
-     * @param $modTime
-     * @param $uniqueid
+     * @param               $email
+     * @param               $modTime
+     * @param               $uniqueid
      */
     public function __construct($realName, $category, array $numbers, $email, $modTime, $uniqueid)
     {
@@ -34,9 +35,10 @@ class PhonebookEntry
     /**
      * Simplified constructor to create a new phonebook entry.
      *
-     * @param $realName
+     * @param               $realName
      * @param PhoneNumber[] $numbers
-     * @param $email
+     * @param               $email
+     *
      * @return PhonebookEntry
      */
     public static function create($realName, array $numbers, $email)

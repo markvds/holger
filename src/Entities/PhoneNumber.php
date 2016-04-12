@@ -28,8 +28,9 @@ class PhoneNumber
      * Create new mobile phone number.
      *
      * @param string $number
-     * @param int $id
-     * @param int $prio
+     * @param int    $id
+     * @param int    $prio
+     *
      * @return PhoneNumber
      */
     public static function newMobile(string $number, int $id, int $prio)
@@ -41,8 +42,9 @@ class PhoneNumber
      * Create new home phone number.
      *
      * @param string $number
-     * @param int $id
-     * @param int $prio
+     * @param int    $id
+     * @param int    $prio
+     *
      * @return PhoneNumber
      */
     public static function newHome(string $number, int $id, int $prio)
@@ -54,8 +56,9 @@ class PhoneNumber
      * Create new work phone number.
      *
      * @param string $number
-     * @param int $id
-     * @param int $prio
+     * @param int    $id
+     * @param int    $prio
+     *
      * @return PhoneNumber
      */
     public static function newWork(string $number, int $id, int $prio)
@@ -67,8 +70,9 @@ class PhoneNumber
      * Create new fax phone number.
      *
      * @param string $number
-     * @param int $id
-     * @param int $prio
+     * @param int    $id
+     * @param int    $prio
+     *
      * @return PhoneNumber
      */
     public static function newFax(string $number, int $id, int $prio)

@@ -47,6 +47,7 @@ class DECTInfo
      * Fields: NewHandsetName, NewPhonebookID.
      *
      * @param $handsetId
+     *
      * @return mixed
      */
     public function getHandsetInfo($handsetId)

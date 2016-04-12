@@ -34,6 +34,7 @@ class Phonebook
      * Fetch the url to get the entries of a phonebook.
      *
      * @param $phonebookId
+     *
      * @return string
      */
     public function entriesUrl($phonebookId)
@@ -47,6 +48,7 @@ class Phonebook
      * List all phonebook entries of a given phonebook.
      *
      * @param $phonebookId
+     *
      * @return \SimpleXMLElement
      */
     public function entries($phonebookId)
@@ -66,9 +68,10 @@ class Phonebook
     /**
      * Fetch entry $entryId of phonebook $phonebookId.
      *
-     * @param $entryId
-     * @param $phonebookId
+     * @param      $entryId
+     * @param      $phonebookId
      * @param bool $raw
+     *
      * @return \SimpleXMLElement|string
      */
     public function entry($entryId, $phonebookId, $raw = false)
@@ -90,10 +93,12 @@ class Phonebook
     /**
      * Resolves a substation id, that is provided by the call monitor
      * to indicate the used handset for the call.
-     * 
+     *
      * @param $substationId
-     * @return array
+     * 
      * @throws SubstationNotFound
+     *
+     * @return array
      */
     public function resolveSubstation($substationId)
     {
@@ -124,6 +129,7 @@ class Phonebook
 
     /**
      * @param $response
+     *
      * @return PhonebookEntry
      */
     protected function extractPhonebookEntry($response)

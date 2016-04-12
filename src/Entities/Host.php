@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Holger\Entities;
-
 
 class Host implements \JsonSerializable
 {
+
     protected $ipAddress;
     protected $macAddress;
     protected $leaseTimeRemaining;
@@ -37,6 +36,7 @@ class Host implements \JsonSerializable
      * Creates a new instance of Host from an API response.
      *
      * @param array $apiResponse
+     *
      * @return Host
      */
     public static function fromResponse(array $apiResponse)
@@ -124,7 +124,7 @@ class Host implements \JsonSerializable
 
     /**
      * Specify data which should be serialized to JSON.
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
      *               which is a value of any type other than a resource.
      * @since 5.4.0

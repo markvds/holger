@@ -21,6 +21,7 @@ class TamMessage
 
     /**
      * TamMessage constructor.
+     *
      * @param $index
      * @param $tam
      * @param $caller
@@ -51,7 +52,7 @@ class TamMessage
         $this->called = $called;
 
         if (!($date instanceof \DateTime)) {
-            $this->date = Carbon::createFromFormat("d.m.y H:i", $date);
+            $this->date = Carbon::createFromFormat('d.m.y H:i', $date);
         } else {
             $this->date = $date;
         }
