@@ -38,12 +38,17 @@ class AnsweringMachine
      *
      * @param int         $index
      * @param string|null $sid
+     * @param int|null    $max
      *
-     * @return TamMessage[]
+     * @return Entities\TamMessage[]
      */
-    public function getMessageList($index = 0, $sid = null)
+    public function getMessageList($index = 0, $sid = null, $max = null)
     {
         $url = $this->getMessageListUrl($index);
+
+        if ($max !== null) {
+            $url .= '&max=' . $max;
+        }
 
         $data = simplexml_load_file($url);
 
