@@ -27,7 +27,6 @@ class Link implements \JsonSerializable
 
     public function __construct($wanAccessType, $upstreamBitRate, $downstreamBitRate, $physicalLinkStatus)
     {
-
         $this->wanAccessType = $wanAccessType;
         $this->upstreamBitRate = new Byte($upstreamBitRate);
         $this->downstreamBitRate = new Byte($downstreamBitRate);

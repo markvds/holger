@@ -43,7 +43,6 @@ class Host implements \JsonSerializable
         return new static($apiResponse['NewIPAddress'], $apiResponse['NewMACAddress'],
             $apiResponse['NewLeaseTimeRemaining'], $apiResponse['NewAddressSource'], $apiResponse['NewInterfaceType'],
             $apiResponse['NewActive'], $apiResponse['NewHostName']);
-
     }
 
     /**
