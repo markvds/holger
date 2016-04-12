@@ -6,6 +6,7 @@ namespace Holger;
 
 class DeviceInfo
 {
+
     protected $endpoint = [
         'controlUri' => '/upnp/control/deviceinfo',
         'uri' => 'urn:dslforum-org:service:DeviceInfo:1',
@@ -17,6 +18,7 @@ class DeviceInfo
     /**
      * Fetch info like manufacturer, model name, serial number,
      * firmware version....
+     *
      * @return array
      */
     public function info()
@@ -25,7 +27,8 @@ class DeviceInfo
     }
 
     /**
-     * Fetch the latest device log entries
+     * Fetch the latest device log entries.
+     *
      * @return string
      */
     public function deviceLog()
@@ -35,6 +38,7 @@ class DeviceInfo
 
     /**
      * Fetch the port number to use for a secure connection.
+     * 
      * @return int
      */
     public function securityPort()

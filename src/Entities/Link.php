@@ -74,19 +74,19 @@ class Link implements \JsonSerializable
     }
 
     /**
-     * Specify data which should be serialized to JSON
+     * Specify data which should be serialized to JSON.
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
+     *               which is a value of any type other than a resource.
      * @since 5.4.0
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return [
             'wanAccessType' => $this->getWanAccessType(),
             'upstreamBitRate' => $this->getUpstreamBitRate()->bits(),
             'downstreamBitRate' => $this->getDownstreamBitRate()->bits(),
-            'physicalLinkStatus' => $this->getPhysicalLinkStatus()
+            'physicalLinkStatus' => $this->getPhysicalLinkStatus(),
         ];
     }
 }

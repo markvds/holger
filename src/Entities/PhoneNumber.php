@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Holger\Entities;
-
 
 class PhoneNumber
 {
+
     public $type;
     public $prio;
     public $id;
@@ -26,7 +25,8 @@ class PhoneNumber
     }
 
     /**
-     * Create new mobile phone number
+     * Create new mobile phone number.
+     *
      * @param string $number
      * @param int $id
      * @param int $prio
@@ -38,7 +38,8 @@ class PhoneNumber
     }
 
     /**
-     * Create new home phone number
+     * Create new home phone number.
+     *
      * @param string $number
      * @param int $id
      * @param int $prio
@@ -50,7 +51,8 @@ class PhoneNumber
     }
 
     /**
-     * Create new work phone number
+     * Create new work phone number.
+     *
      * @param string $number
      * @param int $id
      * @param int $prio
@@ -62,7 +64,8 @@ class PhoneNumber
     }
 
     /**
-     * Create new fax phone number
+     * Create new fax phone number.
+     *
      * @param string $number
      * @param int $id
      * @param int $prio

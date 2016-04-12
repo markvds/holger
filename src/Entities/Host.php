@@ -34,7 +34,8 @@ class Host implements \JsonSerializable
     }
 
     /**
-     * Creates a new instance of Host from an API response
+     * Creates a new instance of Host from an API response.
+     *
      * @param array $apiResponse
      * @return Host
      */
@@ -48,7 +49,8 @@ class Host implements \JsonSerializable
 
     /**
      * Return the associated IP address
-     * Depending on your network config this can be an IPv4 or IPv6 address
+     * Depending on your network config this can be an IPv4 or IPv6 address.
+     *
      * @return string
      */
     public function getIpAddress()
@@ -57,7 +59,8 @@ class Host implements \JsonSerializable
     }
 
     /**
-     * Return the hardware MAC address
+     * Return the hardware MAC address.
+     *
      * @return string
      */
     public function getMacAddress()
@@ -66,7 +69,8 @@ class Host implements \JsonSerializable
     }
 
     /**
-     * Returns the time until there will be a new lease for this device
+     * Returns the time until there will be a new lease for this device.
+     *
      * @return string
      */
     public function getLeaseTimeRemaining()
@@ -77,7 +81,7 @@ class Host implements \JsonSerializable
     /**
      * Returns how the address was assigned
      * Possible values:
-     *  - DHCP: DHCP assignment
+     *  - DHCP: DHCP assignment.
      *
      * @return string
      */
@@ -89,7 +93,7 @@ class Host implements \JsonSerializable
     /**
      * Gives the type of the connection (WiFi, Ethernet...)
      * Possible values:
-     *  - 802.11 for WiFi
+     *  - 802.11 for WiFi.
      *
      * @return string
      */
@@ -99,7 +103,8 @@ class Host implements \JsonSerializable
     }
 
     /**
-     * True if the host is currently active
+     * True if the host is currently active.
+     *
      * @return string
      */
     public function getActive()
@@ -108,7 +113,8 @@ class Host implements \JsonSerializable
     }
 
     /**
-     * Returns the hostname that is assigned to this device
+     * Returns the hostname that is assigned to this device.
+     *
      * @return string
      */
     public function getHostName()
@@ -118,13 +124,13 @@ class Host implements \JsonSerializable
 
 
     /**
-     * Specify data which should be serialized to JSON
+     * Specify data which should be serialized to JSON.
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
+     *               which is a value of any type other than a resource.
      * @since 5.4.0
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

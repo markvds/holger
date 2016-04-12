@@ -1,10 +1,10 @@
 <?php
 
-require_once "../../vendor/autoload.php";
+require_once '../../vendor/autoload.php';
 
 $credentials = [
     'username' => 'user',
-    'password' => 'password'
+    'password' => 'password',
 ];
 
 if (file_exists('../../config.php')) {
@@ -22,4 +22,4 @@ if (count($argv) > 1) {
     $id = $argv[1];
 }
 
-dump($phonebook->entry($id,0));
+dump($phonebook->entry($id, 0));
