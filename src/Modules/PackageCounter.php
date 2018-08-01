@@ -5,7 +5,6 @@ namespace Holger\Modules;
 use Holger\HasEndpoint;
 use Holger\Values\Byte;
 
-
 class PackageCounter
 {
     protected $endpoint = [

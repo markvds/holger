@@ -11,7 +11,6 @@ use Holger\HasEndpoint;
 
 class Phonebook
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/x_contact',
         'uri' => 'urn:dslforum-org:service:X_AVM-DE_OnTel:1',

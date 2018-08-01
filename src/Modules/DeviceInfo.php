@@ -4,10 +4,8 @@ namespace Holger\Modules;
 
 use Holger\HasEndpoint;
 
-
 class DeviceInfo
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/deviceinfo',
         'uri' => 'urn:dslforum-org:service:DeviceInfo:1',

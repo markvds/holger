@@ -4,7 +4,6 @@ namespace Holger\Entities;
 
 class Host implements \JsonSerializable
 {
-
     protected $ipAddress;
     protected $macAddress;
     protected $leaseTimeRemaining;

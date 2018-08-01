@@ -4,7 +4,6 @@ namespace Holger\Entities;
 
 class PhoneNumber
 {
-
     public $type;
     public $prio;
     public $id;

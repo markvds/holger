@@ -4,7 +4,6 @@ namespace Holger\Modules;
 
 use Holger\HasEndpoint;
 
-
 class CallList
 {
     protected $endpoint = [

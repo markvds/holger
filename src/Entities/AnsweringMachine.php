@@ -4,7 +4,6 @@ namespace Holger\Entities;
 
 use Holger\Values\Byte;
 
-
 class AnsweringMachine
 {
     /**

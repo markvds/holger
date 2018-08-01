@@ -8,7 +8,6 @@ use Holger\Values\Byte;
 
 class WANStats
 {
-
     protected $endpoint = [
         'controlUri' => '/igdupnp/control/WANCommonIFC1',
         'uri' => 'urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1',

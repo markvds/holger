@@ -4,7 +4,6 @@ namespace Holger\Entities;
 
 class PhonebookEntry
 {
-
     public $realName;
     public $category;
     public $numbers;

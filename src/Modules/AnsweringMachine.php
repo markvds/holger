@@ -8,7 +8,6 @@ use Holger\Entities\AnsweringMachine as AnsweringMachineInfo;
 
 class AnsweringMachine
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/x_tam',
         'uri' => 'urn:dslforum-org:service:X_AVM-DE_TAM:1',

@@ -7,7 +7,6 @@ use Holger\HasEndpoint;
 
 class Network
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/hosts',
         'uri' => 'urn:dslforum-org:service:Hosts:1',

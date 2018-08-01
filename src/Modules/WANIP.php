@@ -8,7 +8,6 @@ use Holger\HasEndpoint;
 
 class WANIP
 {
-
     protected $endpoint = [
         'controlUri' => '/igdupnp/control/WANIPConn1',
         'uri' => 'urn:schemas-upnp-org:service:WANIPConnection:1',

@@ -4,7 +4,6 @@ namespace Holger;
 
 trait HasEndpoint
 {
-
     protected $conn = null;
 
     public function __construct(TR064Connection $conn)
