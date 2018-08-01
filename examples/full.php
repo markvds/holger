@@ -13,56 +13,45 @@ if (file_exists('../config.php')) {
     $credentials = array_merge($credentials, $loadedCredentials);
 }
 
-$res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
+$holger = new Holger\Holger('192.168.178.1', $credentials['password'], $credentials['username']);
 
 echo "\n\n Holger Function Overview\n===========================\n\n";
 
 echo "1. Call List:\n";
-$callList = new \Holger\CallList($res);
 
-echo 'Call List URL: ' . $callList->getCallListUrl() . "\n";
+echo 'Call List URL: ' . $holger->calls->getCallListUrl() . "\n";
 echo "Last 10 calls:\n\n";
-echo $callList->getCallList(['max' => 10, 'type' => 'csv']);
+echo $holger->calls->getCallList(['max' => 10, 'type' => 'csv']);
 
 echo "\n2. DECT Info:\n";
 
-$dectInfo = new \Holger\DECTInfo($res);
-$handsets = $dectInfo->getHandsets();
+$handsets = $holger->dect->getHandsets();
 echo 'List of handsets: ' . implode(', ', $handsets) . "\n";
 if (count($handsets) > 0) {
-    $info = $dectInfo->getHandsetInfo($handsets[0]);
+    $info = $holger->dect->getHandsetInfo($handsets[0]);
     echo 'Name of first handset: ' . $info['NewHandsetName'] . "\n";
 }
 
 echo "\n3. IP Addresses:\n";
-$wanip = new \Holger\WANIP($res);
 
-echo 'External IP: ' . $wanip->externalIP() . "\n";
-echo 'Uptime: ' . $wanip->status()->getUptime() . "s\n";
+echo 'External IP: ' . $holger->ip->externalIP() . "\n";
+echo 'Uptime: ' . $holger->ip->status()->getUptime() . "s\n";
 
 try {
-    echo 'External IPv6: ' . $wanip->externalIPv6() . "\n";
+    echo 'External IPv6: ' . $holger->ip->externalIPv6() . "\n";
 } catch (\Holger\Exceptions\IPv6UnavailableException $e) {
     echo "IPv6 unavailable!\n";
 }
 
 echo "\n4. Package Counter:\n";
-$packageCounter = new \Holger\PackageCounter($res);
-$stats = $packageCounter->statistics();
+$stats = $holger->counter->statistics();
 echo 'Sent Bytes: ' . $stats['bytesSent']->megaBytes() . " MB\n";
 echo 'Received Bytes: ' . $stats['bytesReceived']->megaBytes() . " MB\n";
 
 echo "\n5. Device Info:\n";
-$deviceInfo = new \Holger\DeviceInfo($res);
-echo 'Port for secure connection: ' . $deviceInfo->securityPort() . "\n";
 
-$wanstats = new \Holger\WANStats($res);
+echo 'Port for secure connection: ' . $holger->device->securityPort() . "\n";
 
-$linkProperties = $wanstats->linkProperties();
+$linkProperties = $holger->stats->linkProperties();
 echo 'Downstream Byte Rate: ' . $linkProperties->getDownstreamBitRate()->megaBytes() . " MB/s\n";
 echo 'Upstream Byte Rate: ' . $linkProperties->getUpstreamBitRate()->megaBytes() . " MB/s\n";
-
-echo "\n6. Device Config:\n";
-$deviceConfig = new \Holger\DeviceConfig($res);
-
-echo 'Temp. SID: ' . $deviceConfig->getSid() . "\n";

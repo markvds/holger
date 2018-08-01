@@ -1,23 +1,24 @@
 <?php
 
-class WANStatsTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class WANStatsTest extends TestCase
 {
 
     /**
-     * @var \Holger\WANStats
+     * @var \Holger\Holger
      */
-    protected $wanStats;
+    protected $holger;
 
     protected function setUp()
     {
-        $conn = new \Holger\TR064Connection($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
-        $this->wanStats = new \Holger\WANStats($conn);
+        $this->holger = new \Holger\Holger($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
     }
 
     /** @test */
     public function it_can_fetch_link_properties()
     {
-        $link = $this->wanStats->linkProperties();
+        $link = $this->holger->stats->linkProperties();
 
         $this->assertInstanceOf(\Holger\Entities\Link::class, $link);
     }
@@ -25,7 +26,7 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_transferred_bytes()
     {
-        $stats = $this->wanStats->byteStats();
+        $stats = $this->holger->stats->byteStats();
 
         $this->assertArrayHasKey('sent', $stats);
         $this->assertInstanceOf(\Holger\Values\Byte::class, $stats['sent']);
@@ -36,7 +37,7 @@ class WANStatsTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_transferred_packets()
     {
-        $stats = $this->wanStats->packetStats();
+        $stats = $this->holger->stats->packetStats();
 
         $this->assertArrayHasKey('sent', $stats);
         $this->assertTrue(is_numeric($stats['sent']));

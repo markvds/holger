@@ -17,7 +17,7 @@ class TamMessage
     public $name;
     public $new;
 
-    protected $path;
+    public $path;
 
     /**
      * TamMessage constructor.
@@ -61,5 +61,10 @@ class TamMessage
         $this->name = $name;
         $this->new = $new;
         $this->path = $path;
+    }
+
+    public function download($to)
+    {
+        copy($this->path, $to);
     }
 }

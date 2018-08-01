@@ -1,8 +1,9 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
 use Holger\Entities\Link;
+use Holger\HasEndpoint;
 use Holger\Values\Byte;
 
 class WANStats

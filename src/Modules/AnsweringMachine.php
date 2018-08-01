@@ -1,8 +1,10 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
 use Holger\Entities\TamMessage;
+use Holger\HasEndpoint;
+use Holger\Entities\AnsweringMachine as AnsweringMachineInfo;
 
 class AnsweringMachine
 {
@@ -19,7 +21,17 @@ class AnsweringMachine
     {
         $idParam = new \SoapParam($index, 'NewIndex');
 
-        return $this->prepareRequest()->GetInfo($idParam);
+        $answer = $this->prepareRequest()->GetInfo($idParam);
+
+        return new AnsweringMachineInfo(
+            $index,
+            $answer['NewName'],
+            $answer['NewEnable'],
+            $answer['NewTAMRunning'],
+            $answer['NewStick'],
+            $answer['NewCapacity'],
+            $answer['NewStick']
+        );
     }
 
     public function getMessageListUrl($index = 0)
@@ -40,7 +52,7 @@ class AnsweringMachine
      * @param string|null $sid
      * @param int|null    $max
      *
-     * @return Entities\TamMessage[]
+     * @return TamMessage[]
      */
     public function getMessageList($index = 0, $sid = null, $max = null)
     {
@@ -54,11 +66,10 @@ class AnsweringMachine
 
         $messages = [];
 
+        $sid = $this->getSid();
+
         foreach ($data as $message) {
-            $url = $this->conn->makeUri((string)$message->Path);
-            if ($sid !== null) {
-                $url .= '&' . $sid;
-            }
+            $url = $this->appendSid($this->conn->makeUri((string)$message->Path), $sid);
             $messages[] = new TamMessage(
                 (int)$message->Index,
                 (int)$message->Tam,

@@ -13,13 +13,11 @@ if (file_exists('../../config.php')) {
     $credentials = array_merge($credentials, $loadedCredentials);
 }
 
-$res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
-
-$phonebook = new \Holger\Phonebook($res);
+$holger = new Holger\Holger('192.168.178.1', $credentials['password'], $credentials['username']);
 
 $id = 0;
 if (count($argv) > 1) {
     $id = $argv[1];
 }
 
-dump($phonebook->entry($id, 0));
+dump($holger->phonebook->entry($id, 0));

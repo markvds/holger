@@ -1,11 +1,13 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
 use Carbon\Carbon;
 use Holger\Entities\PhonebookEntry;
 use Holger\Entities\PhoneNumber;
 use Holger\Exceptions\SubstationNotFound;
+use Holger\PhonebookEntrySerializer;
+use Holger\HasEndpoint;
 
 class Phonebook
 {

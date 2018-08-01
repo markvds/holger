@@ -1,9 +1,10 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
 use Holger\Entities\WANStatus;
 use Holger\Exceptions\IPv6UnavailableException;
+use Holger\HasEndpoint;
 
 class WANIP
 {

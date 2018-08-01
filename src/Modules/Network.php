@@ -1,8 +1,9 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
 use Holger\Entities\Host;
+use Holger\HasEndpoint;
 
 class Network
 {

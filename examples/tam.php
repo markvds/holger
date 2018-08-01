@@ -1,5 +1,7 @@
 <?php
 
+use Holger\Holger;
+
 require_once '../vendor/autoload.php';
 
 $credentials = [
@@ -13,15 +15,18 @@ if (file_exists('../config.php')) {
     $credentials = array_merge($credentials, $loadedCredentials);
 }
 
-$res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
-
-$tam = new \Holger\AnsweringMachine($res);
+$holger = new Holger('192.168.178.1', $credentials['password'], $credentials['username']);
 
 try {
-    dump($tam->getInfo());
-    dump($tam->getMessageListUrl());
-    $deviceConfig = new \Holger\DeviceConfig($res);
-    dump($tam->getMessageList(0, $deviceConfig->getSid()));
+    dump($holger->answeringMachine->getInfo());
+    dump($holger->answeringMachine->getMessageListUrl());
+    $messages = $holger->answeringMachine->getMessageList();
+    if (count($messages) > 0) {
+        $message = $messages[0];
+        dump($message->path);
+
+        $message->download('call-' . $message->caller . '.wav');
+    }
 } catch (Exception $e) {
     dump($e);
 }

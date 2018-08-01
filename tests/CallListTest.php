@@ -1,17 +1,25 @@
 <?php
 
-class CallListTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class CallListTest extends TestCase
 {
 
     /**
-     * @var \Holger\CallList
+     * @var \Holger\Modules\CallList
      */
     protected $callList;
 
+    /**
+     *
+     * @var \Holger\Holger
+     */
+    protected $holger;
+
     protected function setUp()
     {
-        $conn = new \Holger\TR064Connection($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
-        $this->callList = new \Holger\CallList($conn);
+        $this->holger = new \Holger\Holger($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
+        $this->callList = $this->holger->calls;
     }
 
     /** @test */
@@ -27,6 +35,8 @@ class CallListTest extends PHPUnit_Framework_TestCase
     public function it_can_fetch_callList()
     {
         $callList = $this->callList->getCallList();
+
+        //var_dump($callList[0][0]);
 
         $this->assertInstanceOf(SimpleXMLElement::class, $callList);
     }

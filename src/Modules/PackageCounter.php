@@ -1,12 +1,13 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
 
+use Holger\HasEndpoint;
 use Holger\Values\Byte;
+
 
 class PackageCounter
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/lanethernetifcfg',
         'uri' => 'urn:dslforum-org:service:LANEthernetInterfaceConfig:1',

@@ -3,7 +3,7 @@
 [![StyleCI](https://styleci.io/repos/53442008/shield)](https://styleci.io/repos/53442008)
 
 This library is a tool to interact with routers that support the TR-064 standard.
- It is mainly tested with a Fritz!Box 7360 by AVM.
+It is mainly tested with a Fritz!Box 7360 by AVM.
 
 ## Why?
 Using SOAP APIs is a real pain. There are a lot of obscure URNs, strange XML description files and a lot of XML responses.
@@ -13,7 +13,7 @@ Using SOAP APIs is a real pain. There are a lot of obscure URNs, strange XML des
 
 ## Installation
 
-Installation is quite simple via composer:
+The library can be installed via composer. Run the following command:
 
 ```
 composer require davidbohn/holger
@@ -21,8 +21,8 @@ composer require davidbohn/holger
 
 ## Usage
 
-First create an instance of TR064Connection.
-Then you can pass this connection to one of the provided service classes. Example:
+Instantiate the Holger\Holger class by passing the host name and, if necessary, a username and password, that can be used to authenticated against the router interface.
+Then you can query the different endpoints like this:
 
 ```php
 <?php
@@ -40,15 +40,13 @@ if (file_exists('config.php')) {
     $credentials = array_merge($credentials, $loadedCredentials);
 }
 
-$res = new Holger\TR064Connection('192.168.178.1', $credentials['password'], $credentials['username']);
+$holger = new Holger\Holger('192.168.178.1', $credentials['password'], $credentials['username']);
 
-$wanip = new \Holger\WANIP($res);
+var_dump($holger->ip->externalIP());
 
-var_dump($wanip->externalIP());
-
-var_dump($wanip->externalIPv6());
-var_dump($wanip->getIPv6Prefix());
-var_dump($wanip->status());
+var_dump($holger->ip->externalIPv6());
+var_dump($holger->ip->getIPv6Prefix());
+var_dump($holger->ip->status());
 
 ```
 
@@ -74,7 +72,7 @@ Currently basic reading of the phonebook, info about DECT handsets, resolving of
 
 ## Credits
 
-This library is currently mainly developed by [David Bohn](https://cancrisoft.net).
+This library is currently mainly developed by [David Bohn](https://david-bohn.de).
 
 Contributions are highly welcome!
 

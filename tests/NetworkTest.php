@@ -1,23 +1,24 @@
 <?php
 
-class NetworkTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class NetworkTest extends TestCase
 {
 
     /**
-     * @var \Holger\Network
+     * @var \Holger\Holger
      */
-    protected $network;
+    protected $holger;
 
     protected function setUp()
     {
-        $conn = new \Holger\TR064Connection($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
-        $this->network = new \Holger\Network($conn);
+        $this->holger = new \Holger\Holger($_ENV['ROUTER_HOST'], $_ENV['ROUTER_PASSWORD'], $_ENV['ROUTER_USERNAME']);
     }
 
     /** @test */
     public function it_can_fetch_number_of_known_hosts()
     {
-        $number = $this->network->numberOfHostEntries();
+        $number = $this->holger->network->numberOfHostEntries();
 
         $this->assertTrue(is_numeric($number));
     }
@@ -25,8 +26,8 @@ class NetworkTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_hosts_by_id()
     {
-        $id = $this->network->numberOfHostEntries() - 1;
-        $host = $this->network->hostById($id);
+        $id = $this->holger->network->numberOfHostEntries() - 1;
+        $host = $this->holger->network->hostById($id);
 
         //$this->assertTrue(is_array($host));
         $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
@@ -35,10 +36,10 @@ class NetworkTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_fetch_host_by_mac()
     {
-        $oneHost = $this->network->hostById(0);
+        $oneHost = $this->holger->network->hostById(0);
         $mac = $oneHost->getMacAddress();
 
-        $host = $this->network->hostByMAC($mac);
+        $host = $this->holger->network->hostByMAC($mac);
 
         $this->assertInstanceOf(\Holger\Entities\Host::class, $host);
         $this->assertEquals($oneHost->getIpAddress(), $host->getIpAddress());

@@ -1,10 +1,12 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
+
+use Holger\HasEndpoint;
+
 
 class CallList
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/x_contact',
         'uri' => 'urn:dslforum-org:service:X_AVM-DE_OnTel:1',

@@ -1,6 +1,9 @@
 <?php
 
-namespace Holger;
+namespace Holger\Modules;
+
+use Holger\HasEndpoint;
+
 
 class DeviceInfo
 {
