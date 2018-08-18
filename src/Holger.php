@@ -10,12 +10,13 @@ class Holger
         'answeringMachine' => \Holger\Modules\AnsweringMachine::class,
         'network' => \Holger\Modules\Network::class,
         'ip' => \Holger\Modules\WANIP::class,
+        'monitor' => \Holger\Modules\WANMonitor::class,
         'stats' => \Holger\Modules\WANStats::class,
         'calls' => \Holger\Modules\CallList::class,
         'dect' => \Holger\Modules\DECTInfo::class,
         'counter' => \Holger\Modules\PackageCounter::class,
         'device' => \Holger\Modules\DeviceInfo::class,
-        'phonebook' => \Holger\Modules\Phonebook::class,
+        'phonebook' => \Holger\Modules\Phonebook::class
     ];
 
     protected $modules = [];
