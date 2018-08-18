@@ -60,6 +60,10 @@ var_dump($holger->ip->status());
 
 ## History
 
+### 0.5
+New API structure, that uses central Holger class to access all modules. Breaking changes!
+Thanks to [sbreiler](https://github.com/sbreiler) for the addition of the WANMonitor module.
+
 ### 0.3
 Retrieval of answering machine messages from Fritz!Box routers was added.
 
