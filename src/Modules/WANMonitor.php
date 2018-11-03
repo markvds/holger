@@ -3,6 +3,7 @@
 namespace Holger\Modules;
 
 use Holger\HasEndpoint;
+use Holger\Entities\OnlineMonitor;
 
 class WANMonitor
 {
@@ -18,18 +19,19 @@ class WANMonitor
      * Get statistics of wan utilization, like upstream and downstream.
      * This call is used by the fritz box network monitor view.
      *
-     * @param int $NewSyncGroupIndex
-     * @return mixed
+     * @param int $newSyncGroupIndex
+     *
+     * @return OnlineMonitor
      */
-    public function getOnlineMonitor($NewSyncGroupIndex = 0)
+    public function getOnlineMonitor($newSyncGroupIndex = 0)
     {
         $response = $this->prepareRequest()->__call(
             'X_AVM-DE_GetOnlineMonitor',
             [
-                new \SoapParam((int)$NewSyncGroupIndex, 'NewSyncGroupIndex')
+                new \SoapParam((int)$newSyncGroupIndex, 'NewSyncGroupIndex'),
             ]
         );
 
-        return $response;
+        return new OnlineMonitor($response);
     }
 }
