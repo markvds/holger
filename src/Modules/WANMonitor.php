@@ -7,7 +7,6 @@ use Holger\Entities\OnlineMonitor;
 
 class WANMonitor
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/wancommonifconfig1',
         'uri' => 'urn:dslforum-org:service:WANCommonInterfaceConfig:1',
