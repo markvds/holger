@@ -2,21 +2,44 @@
 
 namespace Holger;
 
+use Holger\Modules\AnsweringMachine;
+use Holger\Modules\CallList;
+use Holger\Modules\DECTInfo;
+use Holger\Modules\DeviceInfo;
+use Holger\Modules\Network;
+use Holger\Modules\PackageCounter;
+use Holger\Modules\Phonebook;
+use Holger\Modules\WANIP;
+use Holger\Modules\WANMonitor;
+use Holger\Modules\WANStats;
+
+/**
+ * @property AnsweringMachine answeringMachine
+ * @property Network network
+ * @property WANIP ip
+ * @property WANMonitor monitor
+ * @property WANStats stats
+ * @property CallList calls
+ * @property DECTInfo dect
+ * @property PackageCounter counter
+ * @property DeviceInfo device
+ * @property Phonebook phonebook
+ */
 class Holger
 {
     protected $connection;
 
     protected $availableModules = [
-        'answeringMachine' => \Holger\Modules\AnsweringMachine::class,
-        'network' => \Holger\Modules\Network::class,
-        'ip' => \Holger\Modules\WANIP::class,
-        'monitor' => \Holger\Modules\WANMonitor::class,
-        'stats' => \Holger\Modules\WANStats::class,
-        'calls' => \Holger\Modules\CallList::class,
-        'dect' => \Holger\Modules\DECTInfo::class,
-        'counter' => \Holger\Modules\PackageCounter::class,
-        'device' => \Holger\Modules\DeviceInfo::class,
-        'phonebook' => \Holger\Modules\Phonebook::class
+        'answeringMachine' => AnsweringMachine::class,
+        'network' => Network::class,
+        'ip' => WANIP::class,
+        'monitor' => WANMonitor::class,
+        'stats' => WANStats::class,
+        'calls' => CallList::class,
+        'dect' => DECTInfo::class,
+        'counter' => PackageCounter::class,
+        'device' => DeviceInfo::class,
+        'phonebook' => Phonebook::class
     ];
 
     protected $modules = [];
