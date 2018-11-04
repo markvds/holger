@@ -6,6 +6,7 @@ use Holger\Modules\AnsweringMachine;
 use Holger\Modules\CallList;
 use Holger\Modules\DECTInfo;
 use Holger\Modules\DeviceInfo;
+use Holger\Modules\Hosts;
 use Holger\Modules\Network;
 use Holger\Modules\PackageCounter;
 use Holger\Modules\Phonebook;
@@ -24,6 +25,7 @@ use Holger\Modules\WANStats;
  * @property PackageCounter counter
  * @property DeviceInfo device
  * @property Phonebook phonebook
+ * @property Hosts hosts
  */
 class Holger
 {
@@ -39,7 +41,8 @@ class Holger
         'dect' => DECTInfo::class,
         'counter' => PackageCounter::class,
         'device' => DeviceInfo::class,
-        'phonebook' => Phonebook::class
+        'phonebook' => Phonebook::class,
+        'hosts' => Hosts::class,
     ];
 
     protected $modules = [];
