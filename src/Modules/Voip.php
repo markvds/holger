@@ -6,7 +6,6 @@ use Holger\HasEndpoint;
 
 class Voip
 {
-
     protected $endpoint = [
         'controlUri' => '/upnp/control/x_voip',
         'uri' => 'urn:dslforum-org:service:X_VoIP:1',
