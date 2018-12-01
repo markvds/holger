@@ -12,6 +12,8 @@ trait HasEndpoint
     }
 
     /**
+     * @param null $endpoint
+     *
      * @return \SoapClient
      */
     protected function prepareRequest($endpoint = null)

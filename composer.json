@@ -12,7 +12,8 @@
         "php": ">=7.0.0",
         "ext-soap": "*",
         "ext-json": "*",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "ext-simplexml": "*"
     },
     "autoload": {
         "psr-4": {
