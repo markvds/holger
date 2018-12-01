@@ -60,6 +60,9 @@ var_dump($holger->ip->status());
 
 ## History
 
+### 0.6
+Add fetching of mesh list and add call feature using call assistance.
+
 ### 0.5
 New API structure, that uses central Holger class to access all modules. Breaking changes!
 Thanks to [sbreiler](https://github.com/sbreiler) for the addition of the WANMonitor module.

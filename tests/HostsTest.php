@@ -26,7 +26,6 @@ class HostsTest extends TestCase
     public function it_loads_the_meshlist()
     {
         $data = $this->holger->hosts->getMeshList();
-        
         $this->assertTrue(is_array($data));
         $this->assertArrayHasKey('nodes', $data);
     }
