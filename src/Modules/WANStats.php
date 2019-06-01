@@ -30,6 +30,22 @@ class WANStats
     }
 
     /**
+     * Returns sent and received bytes since restart
+     * @return array
+     */
+    public function addonInfos()
+    {
+        $response = $this->prepareRequest()->GetAddonInfos();
+
+        $byteSendRate = Byte::fromBytes($response['NewByteSendRate']);
+        $byteReceiveRate = Byte::fromBytes($response['NewByteReceiveRate']);
+        $totalBytesSent = Byte::fromBytes($response['NewTotalBytesReceived']);
+        $totalBytesReceived = Byte::fromBytes($response['NewTotalBytesReceived']);
+
+        return compact('byteSendRate', 'byteReceiveRate', 'totalBytesSent', 'totalBytesReceived');
+    }
+
+    /**
      * Returns sent and received bytes since restart.
      *
      * @return array
