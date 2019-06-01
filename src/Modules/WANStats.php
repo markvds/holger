@@ -30,7 +30,8 @@ class WANStats
     }
 
     /**
-     * Returns sent and received bytes since restart
+     * Returns sent and received bytes and rates since restart.
+     *
      * @return array
      */
     public function addonInfos()
